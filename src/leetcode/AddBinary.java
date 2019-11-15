@@ -5,7 +5,7 @@ package leetcode;
  *
  * @author huifei.liu@hand-chian.com
  * Date: 2019/11/12
- * Description: todo
+ * Description: leetcode 67
  */
 
 public class AddBinary {

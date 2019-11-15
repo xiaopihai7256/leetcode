@@ -9,7 +9,7 @@ import java.util.Map;
  *
  * @author huifei.liu@hand-chian.com
  * Date: 2019-06-16
- * Description: 两数之和
+ * Description: 两数之和 leetcode 1
  */
 
 public class TwoSum  {

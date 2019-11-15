@@ -5,7 +5,7 @@ package leetcode;
  *
  * @author huifei.liu@hand-chian.com
  * Date: 2019-06-16
- * Description: todo
+ * Description: leetcode 2
  */
 
 public class AddTwoNumbers {
