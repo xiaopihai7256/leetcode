@@ -3,7 +3,6 @@ package leetcode;
 /**
  * LeetCode67
  *
- * @author huifei.liu@hand-chian.com
  * Date: 2019/11/12
  * Description: leetcode 67
  */

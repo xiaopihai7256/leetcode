@@ -5,7 +5,6 @@ import java.util.Arrays;
 /**
  * MergeSort
  *
- * @author huifei.liu@hand-chian.com
  * Date: 2019/11/13
  * Description: 归并排序
  */

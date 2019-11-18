@@ -1,13 +1,10 @@
 package leetcode;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * FindPlalindromeString
  *
- * @author huifei.liu@hand-chian.com
  * Date: 2019/10/7
  * Description: leetcode5:最长回文子串
  */

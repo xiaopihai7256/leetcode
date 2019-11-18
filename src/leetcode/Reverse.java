@@ -3,7 +3,6 @@ package leetcode;
 /**
  * 反转数字-7：https://leetcode-cn.com/problems/reverse-integer/submissions/
  *
- * @author huifei.liu@hand-chian.com
  * Date: 2019/11/4
  * Description: 反转数字
  */

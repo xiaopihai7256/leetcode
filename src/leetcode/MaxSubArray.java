@@ -3,7 +3,6 @@ package leetcode;
 /**
  * LeetCode53
  *
- * @author huifei.liu@hand-chian.com
  * Date: 2019/11/5
  * Description: todo
  */
@@ -20,7 +19,7 @@ public class MaxSubArray {
             } else {
                 plus = num;
             }
-            seed = plus > seed ? plus : seed;
+            seed = Math.max(plus, seed);
         }
         return seed;
     }

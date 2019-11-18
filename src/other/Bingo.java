@@ -9,7 +9,6 @@ import java.util.Set;
  *
  * 提供5*5的矩阵，要求解析出达成bingo的数量和达成5个bingo需要修改的点的数量
  *
- * @author huifei.liu@hand-chian.com
  * Date: 2019/11/12
  * Description: bingo求解
  */

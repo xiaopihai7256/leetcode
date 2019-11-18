@@ -3,7 +3,6 @@ package leetcode;
 /**
  * AToI
  *
- * @author huifei.liu@hand-chian.com
  * Date: 2019-07-16
  * Description: 字符串转数字
  */
@@ -71,21 +70,6 @@ public class Atoi {
         return isPositive ? result : -result;
     }
 
-    /**
-     * 执行用时 :
-     * 11 ms
-     * , 在所有 Java 提交中击败了
-     * 42.79%
-     * 的用户
-     * 内存消耗 :
-     * 36.1 MB
-     * , 在所有 Java 提交中击败了
-     * 85.44%
-     * 的用户
-     * @param str
-     * @return
-     */
-    //
     public static int myAtoi3(String str) {
 
         if (str == null || str.length() < 1) {

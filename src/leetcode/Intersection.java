@@ -6,7 +6,6 @@ import java.util.Set;
 /**
  * Intersection
  *
- * @author huifei.liu@hand-chian.com
  * Date: 2019/11/13
  * Description: 求两数组交集 349
  */

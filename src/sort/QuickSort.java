@@ -5,7 +5,6 @@ import java.util.Arrays;
 /**
  * QuickSort
  *
- * @author huifei.liu@hand-chian.com
  * Date: 2019/11/13
  * Description: 快排
  */

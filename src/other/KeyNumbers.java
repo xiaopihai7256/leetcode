@@ -11,7 +11,6 @@ import java.util.stream.IntStream;
  *
  * 提供五个条件，要求推断出符合该条件的数字
  *
- * @author huifei.liu@hand-chian.com
  * Date: 2019-06-16
  * Description: 找出符合条件的数字
  */

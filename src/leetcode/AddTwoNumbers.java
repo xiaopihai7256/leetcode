@@ -3,7 +3,6 @@ package leetcode;
 /**
  * AddTwoNumbers
  *
- * @author huifei.liu@hand-chian.com
  * Date: 2019-06-16
  * Description: leetcode 2
  */

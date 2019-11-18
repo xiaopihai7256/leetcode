@@ -5,7 +5,6 @@ package leetcode;
  *
  * 190: 颠倒二进制
  * see: https://leetcode-cn.com/problems/reverse-bits/
- * @author huifei.liu@hand-chian.com
  * Date: 2019/11/17
  * Description: 颠倒二进制
  */

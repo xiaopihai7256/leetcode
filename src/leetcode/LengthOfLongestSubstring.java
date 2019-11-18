@@ -7,7 +7,6 @@ import java.util.Objects;
 /**
  * maxUniqLengthOfStr
  *
- * @author huifei.liu@hand-chian.com
  * Date: 2019-06-16
  * Description: 最长的重复子串
  */

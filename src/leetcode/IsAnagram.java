@@ -3,7 +3,6 @@ package leetcode;
 /**
  * IsAnagram
  *
- * @author huifei.liu@hand-chian.com
  * Date: 2019/11/13
  * Description: anagram 异形词
  */
