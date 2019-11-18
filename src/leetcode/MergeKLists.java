@@ -30,6 +30,7 @@ public class MergeKLists {
      */
     public ListNode mergeSort(ListNode[] lists, int p, int r) {
         if (p == r) return lists[p];
+        else if (r - p == 1) return merge(lists[p], lists[r]);
         if (p < r) {
             int q = (p + r) / 2;
             ListNode left = mergeSort(lists, p, q);
@@ -48,8 +49,16 @@ public class MergeKLists {
     public ListNode merge(ListNode first, ListNode second) {
         if (first == null) return second;
         else if (second == null) return first;
-        ListNode header = first, firstLast = first, secondNext;
+        ListNode header = first, firstLast = first, temp;
+        // 避免在迭代中一直判断 first == last, 直接判断后交换位置
+        if (first.val > second.val) {
+            temp = first;
+            first = second;
+            second = temp;
+            header = first;
+        }
         while (second != null) {
+            // first 为空时，直接拼接second剩余部分
             if (first == null ) {
                 firstLast.next = second;
                 break;
@@ -59,21 +68,13 @@ public class MergeKLists {
                 first = first.next;
                 continue;
             }
-            if (first == firstLast) {
-                secondNext = second.next;
-                second.next = first;
-                firstLast = second;
-                header = firstLast;
-                second = secondNext;
-                continue;
-            }
             firstLast.next = second;
-            secondNext = second.next;
+            temp = second.next;
             second.next = first;
             firstLast = second;
-            second = secondNext;
+            second = temp;
         }
-        printListNode(header);
+        // printListNode(header);
         return header;
 
     }
