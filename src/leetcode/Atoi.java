@@ -39,18 +39,7 @@ public class Atoi {
     }
 
     /**
-     * 执行用时 :
-     * 4 ms
-     * , 在所有 Java 提交中击败了
-     * 98.62%
-     * 的用户
-     * 内存消耗 :
-     * 36.4 MB
-     * , 在所有 Java 提交中击败了
-     * 83.77%
-     * 的用户
-     * @param str 输入，肯定非空
-     * @return 解析结果
+     * 执行用时 : 2ms
      */
     static final int max = Integer.MAX_VALUE/10;
     public static int myAtoi(String str) {
