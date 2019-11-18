@@ -12,8 +12,9 @@ public class Atoi {
 
     public static void main(String[] args) {
 
-        System.out.println(myAtoi(" "));
         System.out.println(myAtoi("  0000000000012345678"));
+        System.out.println(myAtoi("20000000000000000000"));
+        System.out.println(myAtoi(" "));
         System.out.println(myAtoi("aaaa-123123123453453453453f"));
         System.out.println(myAtoi("-9223372036854775809"));
         System.out.println(myAtoi("  +1  -4234"));
@@ -51,69 +52,34 @@ public class Atoi {
      * @param str 输入，肯定非空
      * @return 解析结果
      */
+    static final int max = Integer.MAX_VALUE/10;
     public static int myAtoi(String str) {
         System.out.print("\"" + str + "\" >>>> ");
         // 非法情况直接返回，节省时间
-        if (str == null || str.isEmpty()) {
-            return 0;
-        }
+        if (str == null || str.isEmpty()) return 0;
         // trim一下，简化逻辑
-        String trimed = str.charAt(0) == ' ' ? str.trim() : str;
-        if (trimed.isEmpty()) {
-            return 0;
-        }
+        String trimmed = str.trim();
+        if (trimmed.isEmpty()) return 0;
         // 非空第一个字符，决定正负，确认 起始遍历的index
-        Boolean isPositive = null;
-        int s , length = trimed.length();
-        char c = trimed.charAt(0);
+        boolean isPositive = true;
+        int s = 0, length = trimmed.length();
+        char c = trimmed.charAt(0);
         if (c == '-') {
             isPositive = false;
             s = 1;
         } else if (c == '+') {
-            isPositive = true;
             s = 1;
-        } else if (c >= '0' && c <= '9') {
-            isPositive = true;
-            s = 0;
-        } else {
-            return 0;
         }
-        // 开始搜寻连续有效的数字，跳过前缀的0
-        int e = s;
-        boolean start = false;
+        int result = 0, current;
         for (int i = s; i < length; i++) {
-            char ch = trimed.charAt(i);
-            if (ch >= '0' && ch <= '9' && e - s <= 10) {
-                if (!start && ch == '0') {
-                    s = i;
-                    e = s + 1;
-                    continue;
-                }
-                start = true;
-                e++;
-            } else {
-                break;
+            current = trimmed.charAt(i) - 48;
+            if (current > 9 || current < 0)  break;
+            if (result > max || (result == max && current > 7)) {
+                return isPositive ? Integer.MAX_VALUE : Integer.MIN_VALUE;
             }
+            result = result * 10 + current;
         }
-        // 解析结果，简单情况直接计算，过长的用long接收并截断
-        if (s == e || e == 0) {
-            return 0;
-        } else if (e - s == 1) {
-            int result = trimed.charAt(s) - '0';
-            return isPositive ? result : 0 - result;
-        }
-        String num = trimed.substring(s, e);
-        if (num.length() < 10) {
-            int result = Integer.parseInt(num);
-            return isPositive ? result : 0 - result;
-        } else {
-            long result = Long.parseLong(num);
-            if (isPositive) {
-                return result >= 2147483647L ? Integer.MAX_VALUE : (int)result;
-            } else {
-                return result >= 2147483648L ? Integer.MIN_VALUE :  (int)(0 - result);
-            }
-        }
+        return isPositive ? result : -result;
     }
 
     /**
