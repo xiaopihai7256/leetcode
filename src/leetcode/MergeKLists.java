@@ -85,6 +85,7 @@ public class MergeKLists {
      * @return
      */
     static ListNode arrayToList(int[] arr) {
+        if (arr == null || arr.length == 0) return null;
         ListNode header = new ListNode(arr[0]);
         ListNode temp = header;
         for (int i = 1; i < arr.length; i++) {
