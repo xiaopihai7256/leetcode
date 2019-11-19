@@ -30,7 +30,6 @@ public class MergeKLists {
      */
     public ListNode mergeSort(ListNode[] lists, int p, int r) {
         if (p == r) return lists[p];
-        else if (r - p == 1) return merge(lists[p], lists[r]);
         if (p < r) {
             int q = (p + r) / 2;
             ListNode left = mergeSort(lists, p, q);
@@ -116,7 +115,10 @@ public class MergeKLists {
     static void printListNode(ListNode header) {
         System.out.print('[');
         while (header != null) {
-            System.out.print(header.val + "->");
+            System.out.print(header.val);
+            if (header.next != null) {
+                System.out.print("->");
+            }
             header = header.next;
         }
         System.out.println(']');
