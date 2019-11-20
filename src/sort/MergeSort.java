@@ -38,36 +38,19 @@ public class MergeSort {
      * @param r 当前Right分组的结束点下标
      */
     private static void merge(int[] arr, int p, int q, int r) {
-        // 在标准实现的基础上外加了一段判断逻辑，避免一直申请内存
-        // 当p到r的距离为2时，直接比较大小，交换位置即可
-        if (r - p == 1) {
-            if (arr[r] >= arr[q]) return;
-            arr[p] = arr[p] + arr[r];
-            arr[r] = arr[p] - arr[r];
-            arr[p] = arr[p] - arr[r];
-            // 打印每一次merge的结果
-            System.out.println(Arrays.toString(arr));
-            return;
-        }
         // 计算两个分组的长度
         int n1 = q - p + 1;
         int n2 = r - q;
         // 复制原数组对应端的数据到两个新的分组
         int[] lArr = new int[n1 + 1];
         int[] rArr = new int[n2 + 1];
-        int i;
-        for (i = 0; i < n1; i++) {
-            lArr[i] = arr[i + p];
-        }
+        System.arraycopy(arr, p, lArr,0, n1);
         // max 代表书中的无限大
-        lArr[i] = Integer.MAX_VALUE;
-        for (i = 0; i < n2; i++) {
-            rArr[i] = arr[i + q + 1];
-        }
-        rArr[i] = Integer.MAX_VALUE;
+        lArr[n1] = Integer.MAX_VALUE;
+        System.arraycopy(arr, q + 1, rArr,0, n2);
+        rArr[n2] = Integer.MAX_VALUE;
         // 开始排序
-        i = 0;
-        int j = 0;
+        int i = 0, j = 0;
         // 遍历当前排序区间
         for (int k = p; k < r + 1; k++) {
             // 左侧拿牌

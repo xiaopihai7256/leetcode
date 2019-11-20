@@ -12,8 +12,6 @@ import java.util.Arrays;
 public class FindPalindromeString {
 
     public static void main(String[] args) {
-        char[] a = new char[20];
-        System.out.println(Arrays.toString(a));
         String[] demo = {
                 "ccccc",
                 "abcdabcd",
@@ -34,11 +32,24 @@ public class FindPalindromeString {
      * @return
      */
     static String longestPalindrome(String s) {
-
-        if ("".equals(s)) {
-            return s;
+        int length = 0, index = 0;
+        for (int i = 0; i < s.length() - 2; i++) {
+            int l = search(s, i, Math.min(i, s.length() - i - 2));
+            if (length < l) {
+                length = l;
+                index = i;
+            }
         }
+        return index == 0 ? "" : s.substring(index - length, index + length);
+    }
 
-        return null;
+    static int search(String s, int index, int length) {
+        int i;
+        for (i = 0; i <= length; i++) {
+            if (s.charAt(index - i) != s.charAt(index + i + 1)) {
+                break;
+            }
+        }
+        return i ;
     }
 }
