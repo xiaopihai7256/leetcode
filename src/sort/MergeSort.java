@@ -17,7 +17,7 @@ public class MergeSort {
         mergeSort(arr,0, arr.length - 1);
     }
 
-    private static void  mergeSort(int[] arr, int p, int r) {
+    public static void  mergeSort(int[] arr, int p, int r) {
         if (p < r) {
             // 计算q，分组
             int q = (p + r) / 2;
@@ -26,7 +26,7 @@ public class MergeSort {
             // 排序右边
             mergeSort(arr, q + 1, r);
             // 合并左右结果
-            merge(arr, p, q, r);
+            merge2(arr, p, q, r);
         }
     }
 
@@ -37,7 +37,7 @@ public class MergeSort {
      * @param q 当前中间节点下标
      * @param r 当前Right分组的结束点下标
      */
-    private static void merge(int[] arr, int p, int q, int r) {
+    public static void merge(int[] arr, int p, int q, int r) {
         // 计算两个分组的长度
         int n1 = q - p + 1;
         int n2 = r - q;
@@ -63,7 +63,46 @@ public class MergeSort {
             }
         }
         // 打印每一次merge的结果
-        System.out.println(Arrays.toString(arr));
+        // System.out.println(Arrays.toString(arr));
+    }
+
+    /**
+     * arr 原始数组, 不使用哨兵牌，判断条件改为i,j两个索引必须同时小于各自数组的长度
+     * @param arr 原始数组
+     * @param p 当前Left分组的起始点下标
+     * @param q 当前中间节点下标
+     * @param r 当前Right分组的结束点下标
+     */
+    public static void merge2(int[] arr, int p, int q, int r) {
+        // 计算两个分组的长度
+        int n1 = q - p + 1;
+        int n2 = r - q;
+        // 复制原数组对应端的数据到两个新的分组
+        int[] lArr = new int[n1];
+        int[] rArr = new int[n2];
+        System.arraycopy(arr, p, lArr, 0, n1);
+        System.arraycopy(arr, q + 1, rArr, 0, n2);
+        // 开始排序
+        int i = 0, j = 0, k;
+        // 遍历当前排序区间
+        for (k = p; i < n1 && j < n2; k++) {
+            // 左侧拿牌
+            if (lArr[i] <= rArr[j]) {
+                arr[k] = lArr[i];
+                i++;
+            } else { // 右侧拿牌
+                arr[k] = rArr[j];
+                j++;
+            }
+        }
+        // 拿未拿完的堆的牌到排序堆顶
+        if (i == n1) {
+            System.arraycopy(rArr, j,arr, k, n2  - j);
+        } else {
+            System.arraycopy(lArr, i,arr, k, n1  - i);
+        }
+        // 打印每一次merge的结果
+        // System.out.println(Arrays.toString(arr));
     }
 
 }

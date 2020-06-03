@@ -12,11 +12,12 @@ import java.util.Arrays;
 public class QuickSort {
 
     public static void main(String[] args) {
-        int[] arr = {9,16,3,2,4,8,5,14,12};
-        quickSort(arr,0, 8);
+        int[] arr = {9,16,18,3,2,4,8,5,14,12};
+        quickSort(arr,0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
 
+    // 排序
     public static void quickSort(int[] A, int p, int r) {
         if (p < r) {
             int q = partition(A, p, r);
@@ -25,6 +26,7 @@ public class QuickSort {
         }
     }
 
+    // 划分
     static int partition(int[] A, int p, int r) {
 
         int x = A[r];
@@ -36,8 +38,8 @@ public class QuickSort {
                 temp = A[i];
                 A[i] = A[j];
                 A[j] = temp;
-                System.out.println(Arrays.toString(A));
             }
+            System.out.println(Arrays.toString(A));
         }
         temp = A[i + 1];
         A[i + 1] = A[r];
