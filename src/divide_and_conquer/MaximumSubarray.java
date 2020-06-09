@@ -39,7 +39,7 @@ public class MaximumSubarray {
      * @param low 低位
      * @param mid 中位
      * @param high 高位
-     * @return [max-left: 左最大和下标, max-right: 右最大和下标, max-left+max-right: 左右最大和]
+     * @return [max-left: 左最大和下标, max-right: 右最大和下标, left-sum + right-sum: 左右最大和]
      */
     static long[] findMaxCrossSubarray(int[] A, int low, int mid, int high) {
 
@@ -65,9 +65,16 @@ public class MaximumSubarray {
                 maxRight = i;
             }
         }
-        return new long[]{maxLeft, maxRight, (long)leftSum + (long)rightSum};
+        return new long[]{maxLeft, maxRight, leftSum + rightSum};
     }
 
+    /**
+     * 最大子数组
+     * @param A 数组
+     * @param low 低位
+     * @param high 高位
+     * @return [max-left: 左最大和下标, max-right: 右最大和下标, sum: 最大和]
+     */
     static long[] findMaximumSubarray(int[] A, int low, int high) {
         if (low == high) {
             return new long[]{low, high, A[low]}; // case length == 1
