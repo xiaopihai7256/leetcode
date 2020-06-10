@@ -13,10 +13,9 @@ public class HammingWeight {
 
         int result = 0;
         while(n != 0) {
-            result += n & 1;
+            result += n & 0b1;
             n >>>= 1;
         }
-        int a = 0;
         return result;
     }
 
