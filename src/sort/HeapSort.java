@@ -5,10 +5,9 @@ import java.util.Arrays;
 /**
  * date: 2020/8/22
  * description: 堆排序
- * 解释：
- *  heapSize: 本实现中的heapSize指定的是堆有效存储的最后位的值的数组下标
+ *  - heapSize: 本实现中的heapSize指定的是堆有效存储的最后位的值的数组下标
  *            如果 N个元素全部有效的话，则heapSize位 N-1（从0开始计算）
- * parent, left, right: 输入为i，先+1, 模拟下标从1开始计算，符合堆下标
+ *  - parent,left,right: 输入为i，先+1, 模拟下标从1开始计算，符合堆下标
  *          计算公式，计算完成后再-1，恢复实际下标
  * 下面不做特殊说明的，默认全都认为下标从0开始, 以免在下标使用时出现误用
  * @author xiaopihai7256
