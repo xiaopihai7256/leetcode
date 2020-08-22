@@ -9,7 +9,7 @@ import java.util.function.ToIntFunction;
 /**
  * date: 2020/8/22
  * description: 出现频率最高的k个元素, 堆自己实现，未采用JDK的Queue
- * https://leetcode-cn.com/problems/top-k-frequent-elements/submissions/
+ * https://leetcode-cn.com/problems/top-k-frequent-elements/
  * @author xiaopihai7256
  */
 public class TopKFrequent {
@@ -20,33 +20,39 @@ public class TopKFrequent {
         System.out.println(Arrays.toString(result));
     }
 
+    public static class IntNode {
+        public IntNode() {
+            this.val = 0;
+        }
+        int val;
+    }
+
+    public static final ToIntFunction<Map.Entry<Integer, IntNode>> toInt = entry -> entry.getValue().val;
+
     /**
      * 执行用时： * 16 ms * , 在所有 Java 提交中击败了 * 80.25% * 的用户
      * 内存消耗： * 42.3 MB * , 在所有 Java 提交中击败了 * 54.42% * 的用户
      */
     public static int[] topKFrequent(int[] nums, int k) {
-        HashMap<Integer, Integer> frequentHash = new HashMap<>();
+        HashMap<Integer, IntNode> frequentHash = new HashMap<>();
         for (int num : nums) {
-            if (frequentHash.containsKey(num)) {
-                frequentHash.put(num, frequentHash.get(num) + 1);
-            } else {
-                frequentHash.put(num, 1);
-            }
+            IntNode node = frequentHash.computeIfAbsent(num, v -> new IntNode());
+            node.val++;
         }
         // 这里自己实现了一个堆，可以用jdk自带的PriorityQueue简化代码
-        Map.Entry<Integer, Integer>[] heap = new Map.Entry[k];
+        Map.Entry<Integer, IntNode>[] heap = new Map.Entry[k];
         // 题目说明K肯定有效，所以先压入K个元素，构建初始堆
-        Iterator<Map.Entry<Integer, Integer>> iterator = frequentHash.entrySet().iterator();
+        Iterator<Map.Entry<Integer, IntNode>> iterator = frequentHash.entrySet().iterator();
         for (int i = 0; i < k; i++) {
             heap[i] = iterator.next();
         }
-        buildHeap(heap, Map.Entry::getValue);
+        buildHeap(heap, toInt);
         // 压入剩余元素
         while(iterator.hasNext()) {
-            Map.Entry<Integer, Integer> current = iterator.next();
-            if (current.getValue() > heap[0].getValue()) {
+            Map.Entry<Integer, IntNode> current = iterator.next();
+            if (toInt.applyAsInt(current) > toInt.applyAsInt(heap[0])) {
                 heap[0] = current;
-                minHeapify(heap,0, Map.Entry::getValue);
+                minHeapify(heap,0, toInt);
             }
         }
         // 构造结果
