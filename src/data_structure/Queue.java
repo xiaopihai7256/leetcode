@@ -4,9 +4,8 @@ import java.util.Iterator;
 
 /**
  * date: 2020/8/22
- * description: Queue
- *
- * @author huifei.liu@hand-chian.com
+ * description: 队列模拟
+ * @author xiaopihai7256
  */
 public class Queue<T> implements Iterable<T> {
 

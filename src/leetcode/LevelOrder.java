@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * date: 2020/8/19
  * description: https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-ii-lcof/
- * @author huifei.liu@hand-chian.com
+ * @author xiaopihai7256
  */
 public class LevelOrder {
 
