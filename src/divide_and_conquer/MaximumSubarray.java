@@ -7,7 +7,7 @@ import java.util.Random;
  * date: 2020/6/3
  * description: 最大子数组问题
  *
- * @author huifei.liu@hand-chian.com
+ * @author xiaopihai7256
  */
 public class MaximumSubarray {
 

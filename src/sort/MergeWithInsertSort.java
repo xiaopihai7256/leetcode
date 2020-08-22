@@ -4,7 +4,7 @@ import java.util.Random;
 
 
 /**
- * @author huifei.liu@hand-chian.com
+ * @author xiopihai7256
  */
 public class MergeWithInsertSort {
 

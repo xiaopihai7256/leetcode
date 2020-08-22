@@ -4,7 +4,7 @@ package leetcode;
  * date: 2020/6/9
  * description: leetcode: 191
  *
- * @author huifei.liu@hand-chian.com
+ * @author xiaopihai7256
  */
 public class HammingWeight {
 
