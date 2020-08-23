@@ -30,7 +30,7 @@ public class HeapSort {
         buildMaxHeap(A);
         // 初始heapSize为数组长度-1
         int heapSize = A.length - 1;
-        for (int i = A.length - 1; i > 0; i--) {
+        for (int i = heapSize; i > 0; i--) {
             exchange(A, 0, i);
             heapSize = heapSize - 1;
             maxHeapify(A, heapSize, 0);
