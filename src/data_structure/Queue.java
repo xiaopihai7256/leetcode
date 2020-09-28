@@ -1,6 +1,7 @@
 package data_structure;
 
 import java.util.Iterator;
+import java.util.PriorityQueue;
 
 /**
  * date: 2020/8/22
@@ -10,10 +11,13 @@ import java.util.Iterator;
 public class Queue<T> implements Iterable<T> {
 
     public static void main(String[] args) {
+        java.util.Queue queue1 = new PriorityQueue();
         Queue<Integer> queue = new Queue<>(10);
         for (int i = 0; i <= 10; i++) {
             queue.enQueue(i);
+            queue1.add(i);
         }
+        System.out.println(queue1);
         System.out.println(queue);
         for (Integer num : queue) {
             System.out.println(num);

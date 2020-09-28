@@ -1,4 +1,4 @@
-package divide_and_conquer;
+package algorithm.divide_and_conquer;
 
 import java.util.Arrays;
 import java.util.Random;

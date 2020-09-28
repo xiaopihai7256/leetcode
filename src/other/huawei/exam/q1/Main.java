@@ -1,4 +1,4 @@
-package  huawei.exam.q1;
+package  other.huawei.exam.q1;
 
 import java.util.ArrayList;
 import java.util.List;

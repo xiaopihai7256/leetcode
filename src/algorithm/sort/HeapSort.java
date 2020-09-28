@@ -1,4 +1,4 @@
-package sort;
+package algorithm.sort;
 
 import java.util.Arrays;
 
@@ -31,6 +31,7 @@ public class HeapSort {
         // 初始heapSize为数组长度-1
         int heapSize = A.length - 1;
         for (int i = heapSize; i > 0; i--) {
+            // 堆顶的最大元素和堆尾部元素替换，堆长度-1，接着进行堆化,确保堆有效
             exchange(A, 0, i);
             heapSize = heapSize - 1;
             maxHeapify(A, heapSize, 0);
@@ -38,16 +39,20 @@ public class HeapSort {
     }
 
     public void buildMaxHeap(int[] A)  {
+        // 1～n/2向下取整都是非叶子结点， n/2+1 ~ n 都是叶子结点
+        // 这里对所有的非叶子节点倒序做堆化即可
         for (int i = (A.length >> 1) - 1; i >= 0; i--) {
             maxHeapify(A, A.length - 1, i);
         }
     }
 
     public void buildMinHeap(int[] A)  {
+        // 1～n/2向下取整都是非叶子结点， n/2+1 ~ n 都是叶子结点
         for (int i =( A.length >> 1) - 1; i >= 0; i--) {
             minHeapify(A, A.length - 1, i);
         }
     }
+
     /**
      * max-heapify
      * 算法导论： 6.2

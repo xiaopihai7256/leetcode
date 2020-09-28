@@ -1,4 +1,4 @@
-package huawei;
+package other.huawei;
 
 import java.util.Scanner;
 
@@ -20,6 +20,10 @@ public class SplitString {
 
     public static final String zero = "00000000";
 
+    /**
+     * 字符串切割，输入一定长度的字符串，按照每行8个字符的长度输出，不够补0
+     * @param str
+     */
     public static void splitString(String str) {
         int count = str.length() / 8;
         int left = str.length() % 8;

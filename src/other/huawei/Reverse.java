@@ -1,4 +1,4 @@
-package huawei;
+package other.huawei;
 
 import java.util.Scanner;
 
@@ -23,7 +23,7 @@ public class Reverse {
     }
 
     /**
-     * 反转句子
+     * 反转句子, 以单词为单位反转句子： i hate you -> you hate i
      *
      * @param sentence 原句子
      * @return 反转后的句子

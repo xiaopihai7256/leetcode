@@ -10,10 +10,11 @@ package leetcode;
 public class AddBinary {
 
     public static void main(String[] args) {
-        System.out.println(addBinary2("11","10"));
-        System.out.println(addBinary2("110010101001","100101000100101010"));
-        System.out.println(addBinary2("01001010101001010101001010100010100011010011001010010101","0"));
-        System.out.println(addBinary2("0100101","001010010001001001010101001110111110"));
+        System.out.println(Integer.toBinaryString(48));
+        System.out.println(addBinary3("11","10"));
+        System.out.println(addBinary3("110010101001","100101000100101010"));
+        System.out.println(addBinary3("01001010101001010101001010100010100011010011001010010101","0"));
+        System.out.println(addBinary3("0100101","001010010001001001010101001110111110"));
     }
 
 
@@ -65,9 +66,42 @@ public class AddBinary {
     static String repeat(char c, int length) {
         char[] chars = new char[length];
         for (int i = 0; i < length; i++) {
-            chars[i] = '0';
+            chars[i] = c;
         }
         return new String(chars);
+
+    }
+
+    static String addBinary3(String a, String b) {
+        String max;
+        char[] result;
+        if (a.length() >= b.length()) {
+            max = a;
+            result = repeat2(b, a.length());
+        } else {
+            max = b;
+            result = repeat2(a, b.length());
+        }
+        int adder = 0;
+        for (int i = result.length - 1; i >= 0; i--) {
+            int sumResult = result[i] + max.charAt(i) + adder - 96;
+            result[i] = (char)((sumResult & 1) | 48);
+            adder = sumResult >>> 1;
+        }
+        String s = new String(result);
+        return adder == 1 ? "1" + s : s;
+    }
+
+    static char[] repeat2(String b, int length) {
+        char[] chars = new char[length];
+        int i;
+        for (i = 0; i < length - b.length(); i++) {
+            chars[i] = '0';
+        }
+        for (int j = 0; j < b.length(); j++) {
+            chars[i + j] = b.charAt(j);
+        }
+        return chars;
 
     }
 

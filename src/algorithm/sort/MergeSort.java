@@ -1,6 +1,4 @@
-package sort;
-
-import java.util.Arrays;
+package algorithm.sort;
 
 /**
  * MergeSort

@@ -1,4 +1,4 @@
-package huawei.exam.q3;
+package other.huawei.exam.q3;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package  huawei.exam.q2;
+package  other.huawei.exam.q2;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -11,7 +11,7 @@ public class Main {
     /**
      * 堆排序， 最大元素相减，为0测清除，不为0结果回退到堆中，算出最后一个元素
      * 题目回忆：
-     * 给定一个正整数数组，每次从数组取两个最大的数字相减（大的哪一个减小的，保证减的结果大于0）
+     * 给定一个正整数数组，每次从数组取两个最大的数字相减（大的那个减小的，保证减的结果大于0）
      * 如果结果不为0，将结果放回数组中，继续重复上一步
      * 直到数组中剩余一个元素时返回这个元素，如果没有元素则返回0
      * @param args
