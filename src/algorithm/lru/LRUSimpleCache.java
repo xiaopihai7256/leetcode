@@ -24,16 +24,13 @@ public class LRUSimpleCache<K, V> extends LinkedHashMap<K, V> {
     }
 
     public static void main(String[] args) {
-        final var lruCache = new LRUSimpleCache<>(3, 3);
-        lruCache.put("test1", 1);
-        lruCache.put("test2", 2);
+        final var lruCache = new LRUSimpleCache<>(2, 2);
+        lruCache.put(1, 1);
+        lruCache.put(2, 2);
         System.out.println(lruCache.toString());
-        lruCache.get("test1");
+        lruCache.get(1);
         System.out.println(lruCache.toString());
-        lruCache.put("test3", 3);
-        lruCache.put("test4", 1);
-        lruCache.put("test5", 2);
-        lruCache.put("test4", 2);
+        lruCache.put(3, 3);
         System.out.println(lruCache.toString());
     }
 }
