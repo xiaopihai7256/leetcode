@@ -28,13 +28,13 @@ public class LongestCommonSubsequence {
         char[] str1 = text1.toCharArray(), str2 = text2.toCharArray();
         if (str1.length == 0 || str2.length == 0) return 0;
         int[][] map = new int[2][str2.length + 1];
-        int i;
+        int i, current = 0, before;
         for (i = 1; i <= str1.length; i++) {
             for (int j = 1; j <=str2.length; j++) {
-                // currentLine就是当前需要计算的行
-                int current = i % 2;
-                // currentLine ^ 1 就是另外一行，也就是上一行
-                int before = current ^ 1;
+                // current 就是当前需要计算的行
+                current = i & 1;
+                // current ^ 1 就是另外一行，也就是上一行
+                before = current ^ 1;
                 if (str1[i -1] == str2[j-1]) {
                     map[current][j] = map[before][j - 1] + 1;
                 } else {
@@ -42,7 +42,7 @@ public class LongestCommonSubsequence {
                 }
             }
         }
-        return map[(i-1)%2][str2.length];
+        return map[current][str2.length];
     }
 
 }
