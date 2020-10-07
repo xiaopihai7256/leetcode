@@ -28,8 +28,8 @@ public class LongestCommonSubsequence {
         char[] str1 = text1.toCharArray(), str2 = text2.toCharArray();
         if (str1.length == 0 || str2.length == 0) return 0;
         int[][] map = new int[2][str2.length + 1];
-        int i, current = 0, before;
-        for (i = 1; i <= str1.length; i++) {
+        int current = 0, before;
+        for (int i = 1; i <= str1.length; i++) {
             for (int j = 1; j <=str2.length; j++) {
                 // current 就是当前需要计算的行
                 current = i & 1;
