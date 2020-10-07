@@ -5,7 +5,7 @@ import java.util.Random;
 
 /**
  * date: 2020/6/3
- * description: 最大子数组问题
+ * description: 最大子数组问题-分治策略
  *
  * @author xiaopihai7256
  */

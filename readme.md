@@ -1,13 +1,15 @@
 # LeetCode 练习
 
-- leetcode
+leetCode与算法练习-java
 
-leetCode的题目解析练习
+`src/`目录结构如下
 
-- other
+```
+src/
+├── algorithm -> 标准算法（排序，算法基础）
+├── data_structure -> 数据结构
+├── leetcode -> leetcode原题
+└── other -> 面试真题或其它题目
+```
 
-面试题及日常遇到的问题解析记录
-
-- sort
-
-排序算法的练习
+> Java 1.8+
