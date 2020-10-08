@@ -43,7 +43,7 @@ public class LevelOrder {
         return result;
     }
 
-    public static class TreeNode {
+    private static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

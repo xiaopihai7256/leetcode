@@ -23,6 +23,9 @@ public class ZigzagLevelOrder {
         return result;
     }
 
+    /**
+     * @param order 用order来控制遍历层的顺序
+     */
     public static void addLevelOrder(List<List<Integer>> result, LinkedList<TreeNode> nodes, boolean order) {
         if (nodes == null || nodes.size() <= 0) return;
         result.add(valueList(nodes, order));
@@ -37,11 +40,12 @@ public class ZigzagLevelOrder {
     static List<Integer> valueList(LinkedList<TreeNode> nodes, boolean order) {
         List<Integer> result = new ArrayList<>(nodes.size());
         if (order) {
+            // true: 正序
             for (TreeNode node : nodes) {
                 result.add(node.val);
             }
         } else {
-            // 倒序
+            // false: 倒序
             Iterator<TreeNode> iterator = nodes.descendingIterator();
             while (iterator.hasNext()) {
                 result.add(iterator.next().val);
@@ -50,7 +54,7 @@ public class ZigzagLevelOrder {
         return result;
     }
 
-    static class TreeNode {
+    private static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
