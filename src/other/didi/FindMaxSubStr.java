@@ -9,12 +9,49 @@ package other.didi;
 public class FindMaxSubStr {
 
     public static void main(String[] args) {
-        String str1 = "bdcaba";
-        String str2 = "abcbdab";
+        String str1 = "1000100100";
+        String str2 = "0111011100";
         // 求最长自序
         maxSubSeq(str1, str2);
         // 求最长字串
-        maxSubStr(str1, str2);
+        System.out.println(maxSubStr2(str1, str2));;
+        System.out.println(maxSubStr(str1, str2));;
+    }
+
+    /**
+     * 求最长公共字串, 空间复杂度优化
+     * str: a, b , c ,d
+     * str2:a, y, b, w, c, q
+     * @param str1 字符串1
+     * @param str2 字符串2
+     * @return 最长公共字串，未搜索到返回空字符串
+     */
+    public static String maxSubStr2(String str1, String str2) {
+        int[][] map = new int[2][str2.length() + 1];
+        // 填充矩阵
+        int maxLength = 0, index = 0;
+        int before, current;
+        for (int i = 1; i <= str1.length(); i++) {
+            current = i & 0x1; // i 优化为 current
+            before = current ^ 0x1; // i - 1 优化为 before
+            for (int j = 1; j <= str2.length(); j++) {
+                if (str1.charAt(i-1) == str2.charAt(j-1)) {
+                    map[current][j] = map[before][j-1] + 1;
+                    if (map[current][j] > maxLength) {
+                        maxLength = map[current][j];
+                        index = i - 1;
+                    }
+                } else {
+                    // 将上次计算的结果清0，否则会污染下一次迭代计算
+                    map[current][j] = 0;
+                }
+            }
+//            for (int j = 0; j < map[current].length; j++) {
+//                System.out.print("[" + map[current][j] + "]");
+//            }
+//            System.out.println();
+        }
+        return str1.substring(index + 1 - maxLength, index + 1);
     }
 
 
