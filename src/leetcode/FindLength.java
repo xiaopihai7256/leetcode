@@ -18,7 +18,6 @@ public class FindLength {
     }
 
     public static int findLengthImpl(int[] A, int[] B) {
-        if (A.length == 0 || B.length == 0) return 0;
         int[][] bitmap = new int[2][B.length + 1];
         int maxLength = 0, current;
         for (int i = 1; i <= A.length; i++) {
